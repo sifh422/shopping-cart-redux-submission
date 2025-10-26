@@ -1,0 +1,255 @@
+.product-list {
+  padding: 24px 16px;
+  background: var(--bg);
+  min-height: auto;
+}
+
+.product-list-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.product-list-header h2 {
+  color: var(--text);
+  font-size: 1.75em;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 1.1em;
+  margin: 0;
+  font-weight: 300;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  position: relative;
+  border: 1px solid var(--border);
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.product-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #111827;
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 16px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e74c3c;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85em;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-name {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 1.3em;
+  font-weight: 600;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.star {
+  font-size: 1.2em;
+  color: #ddd;
+}
+
+.star.filled {
+  color: #f39c12;
+}
+
+.star.half {
+  background: linear-gradient(90deg, #f39c12 50%, #ddd 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rating-text {
+  color: #7f8c8d;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.product-description {
+  color: #7f8c8d;
+  font-size: 0.95em;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-price {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.product-actions {
+  flex: 1;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.35);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+}
+
+.add-to-cart-btn.added {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  animation: success-bounce 0.6s ease;
+}
+
+@keyframes success-bounce {
+  0%, 20%, 60%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-4px); }
+  80% { transform: translateY(-2px); }
+}
+
+.add-to-cart-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.cart-icon, .checkmark {
+  font-size: 1.1em;
+}
+
+.checkmark {
+  animation: checkmark-appear 0.3s ease;
+}
+
+@keyframes checkmark-appear {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    padding: 20px 15px;
+  }
+  
+  .product-list-header h2 {
+    font-size: 2em;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .product-card img {
+    height: 200px;
+  }
+  
+  .product-info {
+    padding: 15px;
+  }
+}
